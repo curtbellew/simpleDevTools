@@ -1,0 +1,24 @@
+{
+  "name": "Simple",
+  "version": "1.0",
+  "devtools_page": "/devtools/devtools.html",
+  "manifest_version": 3,
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting"
+  ], 
+  "host_permissions": [ 
+    "http://*/*",
+    "https://*/*",
+    "<all_urls>"
+  ],
+  "content_scripts": [{
+    "matches": ["http://*/*","https://*/*", "*://*/*"],
+    "all_frames": true,
+    "js": ["libs/axe.js","content_script.js", "scripts/pluginRegistry.js", "scripts/info.js","scripts/axeLibWrapper.js"]
+  }],
+  "background": {
+      "service_worker": "background.js"
+  }
+}
